@@ -1,0 +1,35 @@
+.ui.two.column.divided.grid
+  .row
+    .column
+      .ui.selection.dropdown#theme-select
+        %input{type: 'hidden', name: 'theme'}
+        .default.text#theme-text Theme: Xcode
+        %i.dropdown.icon
+        .menu
+          - Rails.application.config.dropdown_themes.each_pair do |val, name|
+            .item{'data-value' => val}= name
+          
+      %br
+      %br
+      #editor
+      %br
+      .ui.fluid.huge.green.button Submit
+    .column
+      %code.ui.code bytecode will be here!
+        
+
+
+:javascript
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/xcode");
+  editor.getSession().setMode("ace/mode/java");
+
+  
+  $('#theme-select').dropdown({
+    onChange: function(value) {
+      editor.setTheme("ace/theme/" + value);
+      $('#theme-text').text("Theme: " + $("[data-value='" + value + "']").text())
+    }
+  })
+  
+  
