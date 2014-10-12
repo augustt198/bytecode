@@ -6,6 +6,10 @@ class HomeController < ApplicationController
   def compile
     text = params[:text]
 
+    unless File.exists? Rails.root.join('tmp', 'compile_files')
+      Dir.mkdir Rails.root.join('tmp', 'compile_files')
+    end
+
     dir_id = "#{request.remote_addr.gsub('.', ':')}-#{Time.now.to_i}"
     path = Rails.root.join('tmp', 'compile_files', dir_id)
     Dir.mkdir path
