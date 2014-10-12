@@ -21,10 +21,22 @@ body {
 }
 
 
-#editor { 
+#editor {
   height: 400px;
   border-style: solid;
   border-color: gray;
   border-radius: 2px;
   border-width: 2px;
+}
+
+input {
+  font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+}
+
+.monospace {
+  font-family: monospace, courier !important;
+}
+
+h1 {
+  margin-top: 10px;
 }

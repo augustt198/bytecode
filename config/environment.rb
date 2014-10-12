@@ -1,8 +1,11 @@
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
+require 'open3'
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+Haml::Template.options[:ugly] = true
 
 Rails.application.config.themes = {
   light: %w{

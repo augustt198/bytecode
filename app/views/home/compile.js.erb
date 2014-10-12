@@ -1,0 +1,5 @@
+<% if !@error.empty? %>
+    $('#result-column').html("<%= j render('home/fail_compile') %>")
+<% else %>
+    $('#result-column').html("<%= j render('home/success_compile') %>")
+<% end %>
